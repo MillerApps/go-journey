@@ -1,18 +1,43 @@
 package lasagna
 
-// TODO: define the 'PreparationTime()' function
+// Define the 'PreparationTime()' function
+func PreparationTime(layers []string, prepLayer int) (prepTime int) {
+	if prepLayer == 0 {
+		prepTime = 2 * len(layers)
+	} else {
+		prepTime = prepLayer * len(layers)
+	}
+	return prepTime
+}
 
-// TODO: define the 'Quantities()' function
+// Define the 'Quantities()' function
+func Quantities(layers []string) (noodles int, sauce float64) {
+	literCount := 0
+	gramCount := 0
+	for _, layer := range layers {
+		switch layer {
+		case "sauce":
+			literCount++
+			sauce = float64(literCount) * 0.2
+		case "noodles":
+			gramCount++
+			noodles = gramCount * 50
+		}
+	}
+	return noodles, sauce
+}
 
-// TODO: define the 'AddSecretIngredient()' function
+// Define the 'AddSecretIngredient()' function
+func AddSecretIngredient(sercertList, myList []string) {
+	if len(sercertList) > 0 && len(myList) > 0 {
+		(myList)[len(myList)-1] = (sercertList)[len(sercertList)-1]
+	}
+}
 
-// TODO: define the 'ScaleRecipe()' function
-
-// Your first steps could be to read through the tasks, and create
-// these functions with their correct parameter lists and return types.
-// The function body only needs to contain `panic("")`.
-// 
-// This will make the tests compile, but they will fail.
-// You can then implement the function logic one by one and see
-// an increasing number of tests passing as you implement more 
-// functionality.
+// Define the 'ScaleRecipe()' function
+func ScaleRecipe(quanitities []float64, portions int) (scaledPortions []float64) {
+	for _, portion := range quanitities {
+		scaledPortions = append(scaledPortions, float64(portions)/2.0*portion)
+	}
+	return scaledPortions
+}
