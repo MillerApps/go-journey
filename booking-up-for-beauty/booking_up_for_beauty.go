@@ -34,7 +34,7 @@ func Description(date string) string {
 	t, _ := time.Parse("1/_2/2006 15:04:05", date)
 	day := days[t.Weekday()]
 	month := t.Month()
-	newString := fmt.Sprintf("You have an appointment on %v, %s %v, %v, at %v:%v.", day, month, t.Day(), t.Year(), t.Hour(), t.Minute())
+	newString := fmt.Sprintf("You have an appointment on %s, %s	 %v, %v, at %v:%v.", day, month, t.Day(), t.Year(), t.Hour(), t.Minute())
 
 	return newString
 }
